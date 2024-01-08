@@ -1,166 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaravelPro</title>
-    @include('components.sidebar')
+@extends('layout')
 
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@section('contant')
+<body class="bg-gradient-primary">
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+<div class="container">
 
-body {
-  /* background-color: #4b111b; */
-  /* width: 100%; */
-  /* min-height: 100vh; */
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                <div class="col-lg-7">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                        </div>
+                        <form class="signup" action="/users" method="post">
+                        @csrf
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        placeholder="First Name" name="name" >
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control form-control-user" id="exampleLastName" name="lname"
+                                        placeholder="Last Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email"
+                                    placeholder="Email Address">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="password" class="form-control form-control-user"
+                                        id="exampleInputPassword" name="password" placeholder="Password">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="password" class="form-control form-control-user"
+                                        id="exampleRepeatPassword" placeholder="Repeat Password">
+                                </div>
+                            </div>
+                            <a href="{{ url('users') }}" class="btn btn-primary btn-user btn-block">
+                                Register Account
+                            </a>
+                            <hr>
+                            <a href="index.html" class="btn btn-google btn-user btn-block">
+                                <i class="fab fa-google fa-fw"></i> Register with Google
+                            </a>
+                            <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                            </a>
+                        </form>
+                        <hr>
+                        <div class="text-center">
+                            <a class="small" href="forgot-password.html">Forgot Password?</a>
+                        </div>
+                        <div class="text-center">
+                            <a class="small" href="login.html">Already have an account? Login!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-button,
-input {
-  border: none;
-  outline: none;
-}
-
-/****************
-      FORM
-*****************/
-.signup {
-  background-color: white;
-  width: 100%;
-  max-width: 500px;
-  padding: 50px 70px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  border-radius: 20px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-h1 {
-  text-align: center;
-  color:  #5383d3;
-}
-h2 {
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: lighter;
-
-  margin-bottom: 40px;
-}
-
-h2 span {
-  text-decoration: underline;
-  cursor: pointer;
-  color:  #5383d3;
-}
-
-/*  Field */
-.signup__field {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  position: relative;
-  margin-bottom: 50px;
-}
-
-.signup__field:before {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  width: 0px;
-  height: 2px;
-  background:  #5383d3;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: all 0.4s ease;
-}
-
-.signup__field:hover:before {
-  width: 100%;
-}
-
-/*  Input */
-.signup__input {
-  width: 100%;
-  /* height: 100%; */
-  font-size: 1.2rem;
-  padding: 10px 2px 0;
-  border-bottom: 2px solid #e0e0e0;
-}
-
-/*  Label */
-.signup__label {
-  color: #bdbdbd;
-  position: absolute;
-  /* top: 50%; */
-  transform: translateY(-50%);
-  left: 2px;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-}
-
-.signup__input:focus + .signup__label,
-.signup__input:valid + .signup__label {
-  top: 0;
-  font-size: 1rem;
-  background-color: white;
-}
-
-/*  Button */
-button {
-  background:  #5383d3;
-  color: white;
-  padding: 12px 0;
-  font-size: 1.2rem;
-  border-radius: 25px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #4b111b;
-}
-    </style>
-</head>
-<body>
-<form class="signup" action="/users" method="post">
-  @csrf
-  <h1>Create account</h1>
-  <h2>Already have an account? <span>Sign in</span></h2>
-
-  <div class="signup__field">
-    <input class="signup__input" type="text" name="name" id="Fname"  />
-    <label class="signup__label" for="Fname">Fname</label>
-  </div>
-  <div class="signup__field">
-    <input class="signup__input" type="text" name="lname" id="name"  />
-    <label class="signup__label" for="lname">Lname</label>
-  </div>
-
-  <div class="signup__field">
-    <input class="signup__input" type="email" name="email" id="email"  />
-    <label class="signup__label" for="email">Email</label>
-  </div>
-
-  <div class="signup__field">
-    <input class="signup__input" type="password" name="password" id="password"  />
-    <label class="signup__label" for="password">Password</label>
-  </div>
-
-  <button type="submit">Sign up</button>
-</form>
-</body>
-</html>
+</div>
+<!-- <x-footer /> -->
+@endsection

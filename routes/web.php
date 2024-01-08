@@ -23,12 +23,21 @@ Route::get('/sign-up', function () {
 });
 
 Route::get('/users', function () {
-    return view('users');
+    return view('users'); 
 });
 
 
+
+Route::get('/edit', function () {
+    return view('edit'); 
+});
 Route::controller(AuthController::class)->group(function () {
     Route::post('/users', 'showUsers')->name('users');
     Route::get('/users', 'getdata')->name('users');
+    Route::get('edit/{id}', [AuthController::class, 'editData']);
+    Route::post('edit/', [AuthController::class, 'update']);
+    Route::get('delete/{id}', [AuthController::class, 'deleteData']);
+
+
 
 });
