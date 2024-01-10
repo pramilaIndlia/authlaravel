@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 /*
@@ -12,32 +11,27 @@ use App\Http\Controllers\AuthController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
+return view('welcome');
 });
-
-
 Route::get('/sign-up', function () {
-    return view('sign-up');
+return view('sign-up');
 });
-
 Route::get('/users', function () {
-    return view('users'); 
+return view('users'); 
 });
-
-
-
 Route::get('/edit', function () {
-    return view('edit'); 
+return view('edit'); 
 });
+Route::get('/login', function () {
+return view('login'); 
+});
+
 Route::controller(AuthController::class)->group(function () {
-    Route::post('/users', 'showUsers')->name('users');
-    Route::get('/users', 'getdata')->name('users');
-    Route::get('edit/{id}', [AuthController::class, 'editData']);
-    Route::post('edit/', [AuthController::class, 'update']);
-    Route::get('delete/{id}', [AuthController::class, 'deleteData']);
-
-
+Route::post('/users', 'showUsers')->name('users');
+Route::get('/users', 'getdata')->name('users');
+Route::get('edit/{id}', [AuthController::class, 'editData']);
+Route::post('edit/', [AuthController::class, 'update']);
+Route::get('delete/{id}', [AuthController::class, 'deleteData']);
 
 });

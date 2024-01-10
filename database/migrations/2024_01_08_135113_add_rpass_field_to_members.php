@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('members', function (Blueprint $table) {
             $table->string('rpass')->after('password');
+            
              });
     }
 

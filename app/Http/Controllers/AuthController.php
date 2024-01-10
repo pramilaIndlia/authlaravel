@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Member;
 // use App\Models\Members;
-// use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Contracts\Validation\Rule;
 
 class AuthController extends Controller
 {
@@ -15,32 +16,34 @@ class AuthController extends Controller
     $req->validate([
         'name' => 'required|string|max:255',
         'lname' => 'required|string|max:255',
-        'email' => 'required|email|unique:members|max:255',
-        'password' => 'required|string|max:255',
-        'rpass' => 'required|string|max:255',
+        'email' => 'required|unique:members|email|max:255',
+        'password' => 'required|string|min:5',
+        'rpass' => 'required|same:password|',
+
 
     ]);
-
+    $data = $req->except('rpass', 'password');
+        $data['password'] = Hash::make($req->password);
+    
     Member::create([
         'name' => $req->name,
         'lname' => $req->lname,
         'email' => $req->email,
         'password' => $req->password,
-        'rpass'=>$req->rpass,
-    ]);
-
+        'rpass' => $req->rpass,
+    ]); 
     
-    // session()->flash('status', 'Data stored successfully');
-
-    return redirect("users");
-    // ->with('success', 'Data stored successfully');
+    session()->flash('status', 'Data stored successfully');
+    
+    return redirect("users")->with('success', 'Data stored successfully');
+    
 }
 
 public function getdata(Request $req)
 {
-    $data = Member::all(); 
+    $data = Member::simplePaginate(3);
     return view('users', ['data' => $data]);
-
+  
 }
 public function deleteData($id){
     $data=Member::find($id);
@@ -79,5 +82,20 @@ public function update(Request $req){
         return redirect('users');
     } 
 }
+// public function deleteAll(Request $req){
+//     $ids = $req->ids;
+//     member::whereIn('id',$ids)->delete();
+//     return response()->json(["success"=>"Member has been deleted"]);
+
+// }
+
+public function destroy($id)  
+       { 
+          $data = Member::where('id', $id)->firstorfail()->delete(); 
+          echo ("User Record deleted successfully."); 
+          return redirect()->route('users'); 
+       } 
 
 }
+
+

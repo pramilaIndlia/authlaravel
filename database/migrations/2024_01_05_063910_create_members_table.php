@@ -14,6 +14,7 @@ class CreateMembersTable extends Migration
             $table->string('lname');
             $table->string('email');
             $table->string('password');
+            $table->string('rpass');
             $table->timestamps();
         });
     }

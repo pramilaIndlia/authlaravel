@@ -87,10 +87,10 @@
     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="{{ url('sign-up') }}">Sign Up</a>
-
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+            <a class="collapse-item" href="{{ url('login') }}">Login</a>
+            <a class="collapse-item" href="{{ url('sign-up') }}">Add New User</a>
+            <a class="collapse-item" href="{{ url('/users') }}">View User List</a>
+            <a class="collapse-item" href="{{url('forgot')}}">Forgot Password</a>
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Other Pages:</h6>
             <a class="collapse-item" href="404.html">404 Page</a>

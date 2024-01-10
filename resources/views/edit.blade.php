@@ -1,247 +1,14 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<style>
-    @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
-body {
-	  background:#2d3b36 url(http://andstud.io/wp-content/uploads/2014/03/blurrrr2.jpg)no-repeat center center fixed;
-  	-webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	  background-size: cover;
-    padding-top: 0px;
-}
 
-h1 {
-   color: #fff; 
-   text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
-   padding-top: 30px;
-   font-size: 100px; 
-   font-weight: 700;
-   text-align: center;
-   font-family: 'Source Sans Pro', sans-serif;
-   margin: 0px;
-}
-
-form {
-    margin-left:auto;
-    margin-right:auto;
-    width: 965px;
-    height: 450px;
-    padding:30px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box; 
-    overflow: hidden; 
-}
-
-textarea{
-	  background: rgba(0, 0, 0, 0.4); 
-    width: 894px;
-    height: 110px;
-    border: none;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box; 
-    display: block;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 18px;
-    color: #fff;
-    padding-left: 45px;
-    padding-right: 20px;
-    padding-top: 12px;
-    margin-bottom: 20px;
-    overflow: hidden;
-}
-
-select {
-    width: 960px;
-    height: 48px;
-    line-height: 1.5;
-    font-size: 1.4em;
-    border: none;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -mox-border-radius: 10px;
-    color: #fff;
-    display: block;
-    background: transparent;
-    background-color: rgba(0,0,0,.4);
-    margin-bottom: 20px;
-    display: block;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 18px;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-}
-
-.nameinput, .emailinput {
-    width: 894px;
-    height: 48px;
-    border: none;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box; 
-    display: block;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 18px;
-    color: #fff;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-bottom: 20px;
-}
-
-input[type=submit] {
-    cursor: pointer;
-}
-
-input.nameinput {
-	  background: rgba(0, 0, 0, 0.4); 
-	  padding-left: 45px;
-}
-
-input.emailinput {
-	  background: rgba(0, 0, 0, 0.4);
-	  padding-left: 45px;
-}
-
-input.message {
-	  background: rgba(0, 0, 0, 0.4);
-	  padding-left: 45px;
-}
-
-select.indent {
-	  padding-left: 45px;
-    cursor: pointer;
-}
-
-::-webkit-input-placeholder {
-	  color: #fff;
-}
-
-:-moz-placeholder{ 
-    color: #fff; 
-}
-
-::-moz-placeholder {
-    color: #fff;
-}
-
-:-ms-input-placeholder {  
-	  color: #fff; 
-}
-
-input:focus, textarea:focus { 
-	  background-color: rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 0 5px 1px rgba(255,255,255,.5);
-    -webkit-box-shadow: 0 0 5px 1px rgba(255,255,255,.5);
-    box-shadow: 0 0 5px 1px rgba(255,255,255,.5);
-	  overflow: hidden; 
-}
-
-.btn {
-	border: none;
-	font-family: 'Source Sans Pro', sans-serif;
-  font-size: 18px;
-  width: 200px;
-  height: 48px;
-	color: #000;
-	background: #fff;
-	cursor: pointer;
-	display: inline-block;
-	font-weight: 700;
-	position: relative;
-  outline: none;
-  box-shadow: 0 6px #cecece;
-  border-radius: 5px;
-  float: right;
-  margin-right: 6px;
-}
-
-.btn:hover {
-	background: #fff;
-  outline: none;
-  box-shadow: 0 4px #cecece;
-	top: 2px;
-}
-
-.btn:active {
-	background: #fff;
-  outline: none;
-  box-shadow: 0 0 #cecece;
-	top: 6px;
-}
-
-.flat {
-	border: none;
-	cursor: pointer;
-	display: inline-block;
-	outline: none;
-  position: relative;
-	-webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	transition: all 0.3s;
-}
-
-
-.flat:before {
-	position: absolute;
-	height: 100%;
-	left: 0;
-	top: 0;
-	line-height: 3;
-	font-size: 140%;
-	width: 60px;
-}
-
-
-.flat {
-   width: 960px !important;
-   height: 48px;
-   overflow: hidden;
-   margin-bottom: 20px;
-   background: url(http://www.jordancundiff.com/wp-content/uploads/2014/03/icon-dropdown.png) no-repeat right;
-   }
-
-@media only screen and ( min-width: 768px ) and ( max-width: 1035px ) {
-  h1 { font-size: 80px; }
-  form { width: 736px !important; }
-    #wpcf7-f156-p143-o1\20 formwrap > form > p > span.wpcf7-form-control-wrap.Subject.flat > select, #wpcf7-f156-p143-o1\20 formwrap > form > p > span.wpcf7-form-control-wrap.Subject.flat { width: 731px !important; }
-    .nameinput, .emailinput, #wpcf7-f156-p143-o1\20 formwrap > form > p > span.wpcf7-form-control-wrap.Message > textarea { width: 666px !important; }
-}
-
-@media only screen and ( max-width: 804px ) {
-    h1 { font-size: 50px; }
-  form { width: 450px !important; }
-   #wpcf7-f156-p143-o1\20 formwrap > form > p > span.wpcf7-form-control-wrap.Subject.flat > select, #wpcf7-f156-p143-o1\20 formwrap > form > p > span.wpcf7-form-control-wrap.Subject.flat { width: 445px !important; }
-    .nameinput, .emailinput, #wpcf7-f156-p143-o1\20 formwrap > form > p > span.wpcf7-form-control-wrap.Message > textarea { width: 380px !important; }
-}
-
-@media only screen and ( max-width: 517px ) {
-     h1 { font-size: 30px; }
-  form { width: 295px !important; }
-  #wpcf7-f156-p143-o1\20 formwrap > form > p > span.wpcf7-form-control-wrap.Subject.flat > select, #wpcf7-f156-p143-o1\20 formwrap > form > p > span.wpcf7-form-control-wrap.Subject.flat { width: 290px !important; }
-    .nameinput, .emailinput, #wpcf7-f156-p143-o1\20 formwrap > form > p > span.wpcf7-form-control-wrap.Message > textarea { width: 225px !important; }
-  .btn { width: 110px; }
-}
-</style>
-<body>
+<body> -->
     <!-- <h1>Flat Responsive Form</h1> -->
-<div class="wpcf7" id="wpcf7-f156-p143-o1 formwrap">
+<!-- <div class="wpcf7" id="wpcf7-f156-p143-o1 formwrap">
     <form action="/edit" method ="POST" class="wpcf7-form" novalidate="novalidate">
         @csrf
 
@@ -279,4 +46,119 @@ input:focus, textarea:focus {
   </form>
 </div>
 </body>
+</html> -->
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Register</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Edit an Account!</h1>
+                            </div>
+                            <form action="/edit" method ="POST" class="wpcf7-form" novalidate="novalidate">
+                                @csrf
+
+                                <input type="hidden" name="id" value="{{ $data['id'] }}">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" name="name" value="{{ $data['name'] }}"
+                                            placeholder="First Name">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName" name="lname" value="{{ $data['lname'] }}"
+                                            placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" value="{{ $data['email'] }}"
+                                        placeholder="Email Address">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user"
+                                            id="exampleInputPassword"  name ="password" value="{{ $data['password'] }}"placeholder="Password">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user"
+                                            id="exampleRepeatPassword" name="rpass"  value="{{ $data['rpass'] }}"placeholder="Repeat Password">
+                                    </div>
+                                </div>
+                                <!-- <a href="{{url('users')}}" class="btn btn-primary btn-user btn-block" type="submit">
+                                              Update</a> -->
+
+                                              <button class="btn btn-primary btn-user btn-block" type="submit">Update Account</button>
+                                <hr>
+                                <a href="index.html" class="btn btn-google btn-user btn-block">
+                                    <i class="fab fa-google fa-fw"></i> Register with Google
+                                </a>
+                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                </a>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="login.html">Already have an account? Login!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
 </html>
