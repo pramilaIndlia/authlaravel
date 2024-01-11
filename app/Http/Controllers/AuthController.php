@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Member;
-// use App\Models\Members;
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Facades\validator;
+
 
 class AuthController extends Controller
 {
@@ -33,7 +34,7 @@ class AuthController extends Controller
         'rpass' => $req->rpass,
     ]); 
     
-    session()->flash('status', 'Data stored successfully');
+    // session()->flash('status', 'Data stored successfully');
     
     return redirect("users")->with('success', 'Data stored successfully');
     
@@ -82,19 +83,34 @@ public function update(Request $req){
         return redirect('users');
     } 
 }
-// public function deleteAll(Request $req){
-//     $ids = $req->ids;
-//     member::whereIn('id',$ids)->delete();
-//     return response()->json(["success"=>"Member has been deleted"]);
 
-// }
+public function deleteAll(Request $req)
+    {
+        $ids = $req->ids;
+        Member::whereIn("id", $ids)->delete();
+        return response()->json(['success'=>"Products Deleted successfully."]);
+    }
 
-public function destroy($id)  
-       { 
-          $data = Member::where('id', $id)->firstorfail()->delete(); 
-          echo ("User Record deleted successfully."); 
-          return redirect()->route('users'); 
-       } 
+    public function login(){
+        return view('login');
+    }
+
+    public function loginAction(Request $req){
+        return $req;
+        // validator::make($req->all(),[
+        //     'email'=>'required|email',
+        //     'password'=>'required'
+        // ])->validate();
+
+        // if (!member::attempt($req->only('email','password'),$req->boolean('remember'))) {
+        //     throw ValidationException::withMessage([
+        //         'email'=>trans('member.failed')
+        //     ]);
+            
+        // }
+        // $req->session()->regenerate();
+        // return redirect('users');
+    }
 
 }
 

@@ -1,4 +1,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js">
+<script scr="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 <body class="bg-gradient-primary">
    <div class="container">
       <div class="card o-hidden border-0 shadow-lg my-5">
@@ -11,11 +14,6 @@
                      <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                      </div>
-                     <!-- @if($errors->any())
-                        @foreach($errors->all() as $err)
-                        <li>{{$err}}</li>
-                        @endforeach
-                        @endif -->
                      <form class="signup" action="/users" method="post">
                         @csrf
                         <div class="form-group row">
@@ -48,9 +46,6 @@
                            </div>
                         </div>
                         <button class="btn btn-primary btn-user btn-block" type="submit">Register Account</button>
-                        <!-- <a href="{{ url('users') }}" class="btn btn-primary btn-user btn-block">
-                           Register Account
-                           </a> -->
                         <hr>
                         <a href="index.html" class="btn btn-google btn-user btn-block">
                         <i class="fab fa-google fa-fw"></i> Register with Google
@@ -70,5 +65,14 @@
                </div>
             </div>
          </div>
-      </div>
-   </div>
+      </div> 
+   </div> 
+   <script>
+   @php
+      if (Session::has("success")) {
+         echo 'toastr.success("' . session('success') . '");';
+      }
+   @endphp
+</script>
+
+</body>

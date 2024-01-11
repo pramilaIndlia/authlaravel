@@ -111,6 +111,7 @@
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" value="{{ $data['email'] }}"
                                         placeholder="Email Address">
+                                        
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
